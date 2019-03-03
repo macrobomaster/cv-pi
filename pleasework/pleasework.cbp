@@ -51,8 +51,21 @@
 		<Linker>
 			<Add option="`opencv-config --ldstaticflags`" />
 		</Linker>
+		<Unit filename="Exception.hpp" />
+		<Unit filename="SerialCommCV.cpp" />
+		<Unit filename="SerialCommCV.hpp" />
+		<Unit filename="SerialPort.cpp" />
+		<Unit filename="SerialPort.hpp" />
+		<Unit filename="analysis_help.cpp" />
+		<Unit filename="analysis_help.hpp" />
 		<Unit filename="arnold_schwarzenegger.jpg" />
 		<Unit filename="main.cpp" />
+		<Unit filename="serialsend.cpp" />
+		<Unit filename="serialsend.hpp" />
+		<Unit filename="util.cpp" />
+		<Unit filename="util.hpp" />
+		<Unit filename="videoutil.cpp" />
+		<Unit filename="videoutil.hpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -1,6 +1,6 @@
 
 #include "videoutil.hpp"
-
+#include "SerialCommCV.hpp"
 
 using namespace cv;
 
@@ -14,7 +14,7 @@ int videoutil::videocap()
         return -1;
 
     cv::Mat edges;
-    cv::namedWindow("edges",1);
+    //cv::namedWindow("edges",1);
     cv::Point2f ptm;
     cv::Point2f pts;
 
@@ -32,13 +32,15 @@ int videoutil::videocap()
     pts = ah.values_to_send(ptm);
 
 
-    printf("center point %f %f \n", pts.x, pts.y);
+    //printf("center point %f %f \n", pts.x, pts.y);
 
+
+    serialcomm(pts);
 
    //cv::GaussianBlur(edges,edges,Size(7,7),1.5,1.5);
    //cv::Canny(edges,edges,0,30,3);
-    cv::imshow("edges", edges);
-    cv::imshow("orgin", frame);
+   // cv::imshow("edges", edges);
+   // cv::imshow("orgin", frame);
     if(waitKey(30) >= 0) break;
 
 

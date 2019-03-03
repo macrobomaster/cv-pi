@@ -16,6 +16,7 @@ class analysis_help{
     cv::Point2f p2;
     cv::Point2f p3;
     cv::Point2f p4;
+    cv::Point2f ep;
     float minx;
     float miny;
 

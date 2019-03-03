@@ -775,24 +775,73 @@
 	<vector>
 	"opencv2/imgproc.hpp"
 
-1551198211 source:/home/pi/jameswork/cv_example/pleasework/analysis_help.cpp
+1551246161 source:/home/pi/jameswork/cv_example/pleasework/analysis_help.cpp
 	"analysis_help.hpp"
-	"opencv2/opencv.hpp"
 
-1551197424 /home/pi/jameswork/cv_example/pleasework/analysis_help.hpp
+1551245908 /home/pi/jameswork/cv_example/pleasework/analysis_help.hpp
 	<stdio.h>
 	"opencv2/opencv.hpp"
 	"opencv2/imgcodecs.hpp"
+	<math.h>
 
-1551198032 /home/pi/jameswork/cv_example/pleasework/videoutil.hpp
+1551200619 /home/pi/jameswork/cv_example/pleasework/videoutil.hpp
 	"analysis_help.hpp"
 	"opencv2/opencv.hpp"
 	"opencv2/imgcodecs.hpp"
+	<stdio.h>
 
 1551194777 source:/home/pi/jameswork/cv_example/pleasework/util.cpp
 
-1551198512 source:/home/pi/jameswork/cv_example/pleasework/videoutil.cpp
+1551237316 source:/home/pi/jameswork/cv_example/pleasework/videoutil.cpp
 	"videoutil.hpp"
-	"opencv2/opencv.hpp"
-	"opencv2/imgcodecs.hpp"
+	"SerialCommCV.hpp"
+
+1551261052 source:/home/pi/jameswork/cv_example/pleasework/SerialPort.cpp
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+	<fcntl.h>
+	<errno.h>
+	<termios.h>
+	<system_error>
+	"Exception.hpp"
+	"SerialPort.hpp"
+
+1511813892 /home/pi/jameswork/cv_example/pleasework/Exception.hpp
+	<iostream>
+	<sstream>
+	<stdexcept>
+	<string>
+
+1551261039 /home/pi/jameswork/cv_example/pleasework/SerialPort.hpp
+	<string>
+	<fstream>
+	<sstream>
+	<termios.h>
+	<vector>
+
+1551237236 /home/pi/jameswork/cv_example/pleasework/SerialCommCV.hpp
+	<opencv2/opencv.hpp>
+
+1551264387 source:/home/pi/jameswork/cv_example/pleasework/SerialCommCV.cpp
+	<opencv2/opencv.hpp>
+	<opencv2/core.hpp>
+	<iostream>
+	<limits>
+	<vector>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"SerialPort.hpp"
+
+1551264794 source:/home/pi/jameswork/cv_example/pleasework/serialsend.cpp
+	"serialsend.hpp"
+
+1551265093 /home/pi/jameswork/cv_example/pleasework/serialsend.hpp
+	<opencv2/opencv.hpp>
+	<opencv2/core.hpp>
+	"SerialCommCV.hpp"
 

@@ -105,6 +105,8 @@ for(int i = 0;i < 4; i++){
 cv::Mat james::analysis_help::find_rec(Mat mat){
 
     Mat ouput = mat;
+    james::analysis_help::ep.x = 320;
+    james::analysis_help::ep.y = 240;
 
     std::vector<std::vector<cv::Point>> contours;
     std::vector<cv::Vec4i> hierachy;
@@ -135,6 +137,10 @@ cv::Mat james::analysis_help::find_rec(Mat mat){
 
     if(biggestid < 0){
     std::cout << "nothing is found " << std::endl;
+        james::analysis_help::p1 =  james::analysis_help::ep;
+    james::analysis_help::p2 = james::analysis_help::ep;
+    james::analysis_help::p3 = james::analysis_help::ep;
+    james::analysis_help::p4 = james::analysis_help::ep;
     return mat;
 
     }
@@ -177,7 +183,7 @@ cv::Mat james::analysis_help::identify_color(Mat mat){
 
     cv::cvtColor(mat,ouput,COLOR_BGR2HSV);
 
-    cv::inRange(ouput,Scalar(0,0,0,0),Scalar(188,255,30,0), ouput);
+    cv::inRange(ouput,Scalar(0,0,0),Scalar(188,255,30), ouput);
 
     return ouput;
 
