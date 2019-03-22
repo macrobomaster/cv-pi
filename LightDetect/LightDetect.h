@@ -10,12 +10,6 @@
 
 using namespace cv;
 
-struct Rect_Mat{
-public:
-    Mat Output;
-    list<cv::RotatedRect> Rect;
-};
-
 cv::Mat toHSV(cv::Mat InputMat);
 
 cv::Mat FilterColor(cv::Mat InputMat, int enemycolor);

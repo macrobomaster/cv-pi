@@ -14,10 +14,6 @@
 using namespace std;
 using namespace cv;
 
-struct Rect_Mat{
-    Mat Output;
-    list<RotatedRect> Rect;
-};
 
 // covert the input video to HSV Color Space
 cv::Mat toHSV(cv::Mat InputMat){
@@ -112,9 +108,7 @@ double angle(Point pt1, Point pt2, Point pt0){
     return (dx1*dx2 + dy1*dy2) / sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
 
-Rect_Mat findRec(cv::Mat InputMat){
-
-    list<RotatedRect> Rect;
+cv::Mat findRec(cv::Mat InputMat){
 
     Mat input = InputMat;
 
@@ -134,8 +128,6 @@ Rect_Mat findRec(cv::Mat InputMat){
 
     vector<Point> polygon;
 
-    RotatedRect MATWITHRECT;
-
     for (int i = 0; i < contours.size();i++){
 
         approxPolyDP(contours[i], polygon, arcLength(contours[i], 1) * 0.02, 1);
@@ -152,10 +144,6 @@ Rect_Mat findRec(cv::Mat InputMat){
             if (maxCosine < 0.3){
 
                 rect=polygon;
-
-                MATWITHRECT=RotatedRect(rect[0], rect[1], rect[2]);
-
-                Rect.push_front(MATWITHRECT);
 
                 // you should see a black bounding box with 4 black circles around the light bar
                 for (int i = 0; i < 4; i++){
@@ -176,9 +164,7 @@ Rect_Mat findRec(cv::Mat InputMat){
         }
     }
 
-    Rect_Mat OutputIMG={input, Rect};
-
-    return OutputIMG;
+    return input;
 }
 
 
