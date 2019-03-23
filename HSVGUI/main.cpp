@@ -9,6 +9,8 @@ using namespace cv;
 Mat src;
 
 void HSVGUI( int event, int x, int y, int f, void *param){
+    //cv::VideoCapture cap(0);
+    //cap>>src;
     if (event == EVENT_MOUSEMOVE) {
         cv::VideoCapture cap(0);
         if(!cap.isOpened())
