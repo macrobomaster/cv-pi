@@ -144,6 +144,9 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 				rect = polygon;
 
+				//james: saving the rec
+				rect_setter(polygon);
+
 				// you should see a black bounding box with 4 black circles around the light bar
 				for (int i = 0; i < 4; i++) {
 
@@ -155,17 +158,21 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 					circle(input, rect[i], 10, Scalar(0, 0, 0), -1);
 
-					//james: saving the poitns
 
-					x1[i] = polygon[i].x;
-					y1[i] = polygon[i].y;
-			
-					printf("first poitnt x  %f \n", x1[i]);
-					printf("first poitnt y  %f \n", y1[i]);
+					printf("first poitnt x  %d \n", rect_getter()[i].x);
+					printf("first poitnt y  %d \n", rect_getter()[i].y);
 
 					cv::line(input, rect[i], rect[p], cv::Scalar(0, 255, 255));
 
 				}
+			
+				
+				//x1[i] = polygon[i].x;
+				//y1[i] = polygon[i].y;
+
+
+				
+			
 			}
 
 		}
@@ -173,4 +180,16 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 	return input;
 }
+
+void LightDetect::rect_setter(vector<Point> rect, int index)
+{
+	my_rect[index] = rect;
+}
+
+std::vector<Point> LightDetect::rect_getter(int index)
+{
+	 return my_rect[index];
+}
+
+
 

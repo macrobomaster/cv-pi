@@ -8,10 +8,12 @@
 #include <vector>
 #include <list>
 
+//#define MAX_REC 1
+
 using namespace cv;
 
 class LightDetect{
-
+		
 	public:
 		cv::Mat toHSV(cv::Mat InputMat);
 
@@ -24,10 +26,14 @@ class LightDetect{
 		cv::Mat findRec(cv::Mat InputMat);
 
 	private:
+		
 
 	protected:
-		double x1[4];
-		double y1[4];
+		
+		std::vector<Point> my_rect[1];
+		void rect_setter(std::vector<Point> rect, int index = 0);
+		std::vector<Point> rect_getter(int index = 0);
+
 };
 
 #endif // LIGHTDETECT_H_INCLUDED

@@ -17,7 +17,7 @@ int main()
 	cv::VideoCapture cap(0);
 	auto i = cap.get(CV_CAP_PROP_EXPOSURE);
 	std::cout << "Exposure \n" << i << std::endl;
-	int exposure = -7;
+	int exposure = -3;
 	cap.set(CV_CAP_PROP_EXPOSURE, exposure);
 	std::cout << "new Exposure " << cap.get(CV_CAP_PROP_EXPOSURE) << std::endl;
 	//james: light detect class added 
