@@ -5,9 +5,11 @@
 	<opencv2/opencv.hpp>
 	<opencv2/core.hpp>
 
-1553042470 source:c:\users\cheng\onedrive\documents\github\cv-pi\hsvgui\main.cpp
+1553308089 source:c:\users\cheng\onedrive\documents\github\cv-pi\hsvgui\main.cpp
 	<iostream>
 	<stdio.h>
 	<opencv2/opencv.hpp>
 	<opencv2/core.hpp>
+	<unistd.h>
+	<thread>
 

@@ -35,7 +35,7 @@ void cam_up()
             cerr << "ERROR! blank frame grabbed\n";
             break;
         }
-        int exposure=0;
+        int exposure=-7;
         capture.set(CV_CAP_PROP_EXPOSURE, exposure);
         capture>>src;
         Mat image=src.clone();
