@@ -8,7 +8,8 @@
 #include <vector>
 #include <list>
 
-//#define MAX_REC 1
+//james: define your max rec here
+#define MAX_REC 1
 
 using namespace cv;
 
@@ -30,7 +31,7 @@ class LightDetect{
 
 	protected:
 		
-		std::vector<Point> my_rect[1];
+		std::vector<Point> my_rect[MAX_REC];
 		void rect_setter(std::vector<Point> rect, int index = 0);
 		std::vector<Point> rect_getter(int index = 0);
 
