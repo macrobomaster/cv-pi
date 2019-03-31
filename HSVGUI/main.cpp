@@ -1,3 +1,7 @@
+// Arthor: Chengxin Liu Haowen Zhang
+// This is the HSVGUI Development tool for McMaster Robomaster Team to determine the HSV value of the pixel at cursor position
+
+
 #include <iostream>
 #include <stdio.h>
 #include <opencv2/opencv.hpp>
