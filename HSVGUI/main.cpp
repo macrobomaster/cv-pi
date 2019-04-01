@@ -27,7 +27,7 @@ void cam_up()
 {
        Mat frame; //create frame of images
 
-       VideoCapture capture(0); //constructor for capture
+       VideoCapture capture("red-front-ev--3.MOV"); //constructor for capture
        namedWindow("HSV GUI", WINDOW_AUTOSIZE); //display window
        for (;;)
     {
@@ -39,8 +39,8 @@ void cam_up()
             cerr << "ERROR! blank frame grabbed\n";
             break;
         }
-        int exposure=-7;
-        capture.set(CV_CAP_PROP_EXPOSURE, exposure);
+        // int exposure=-7;
+        capture.set(CV_CAP_PROP_POS_FRAMES, 290);
         capture>>src;
         Mat image=src.clone();
         Mat HSV;

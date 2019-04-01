@@ -39,11 +39,11 @@ cv::Mat LightDetect::FilterColor(cv::Mat InputMat, int enemycolor) {
 
 	// set red valve value (USE HSVGUI to adjust)
 	if (enemycolor == 0) {
-		Hmin=150;
-        Hmax=200;
-        Smin=0;
-        Smax=255;
-        Vmin=160;
+		Hmin=0;
+        Hmax=30;
+        Smin=150;
+        Smax=250;
+        Vmin=200;
         Vmax=255;
 	}
 	// set blue valve value
@@ -91,7 +91,7 @@ cv::Mat LightDetect::erode_dilate(cv::Mat InputMat) {
 	Mat result_erode, result_dilate;
 
 	// Change last parameter of the following 2 functions based on computation limitation
-	cv::erode(input, result_erode, erodeStruct, Point(-1, -1), 4);
+	cv::erode(input, result_erode, erodeStruct, Point(-1, -1), 2);
 
 	cv::dilate(result_erode, result_dilate, erodeStruct, Point(-1, -1), 4);
 
@@ -111,6 +111,7 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 	Mat input = InputMat;
 
+    int num=0;
 	// Mat output_with_Rec;
 
 	std::vector<vector<cv::Point>> contours;
@@ -147,6 +148,9 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 				//james: saving the rec
 				rect_setter(polygon);
 
+				num+=1;
+
+                // Upper left rect[1], lower left rect[2], upper right rect[0], lower right[]
 				// you should see a black bounding box with 4 black circles around the light bar
 				for (int i = 0; i < 4; i++) {
 
@@ -155,12 +159,6 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 					if (p > 3) {
 						p = 0;
 					}
-
-					circle(input, rect[i], 10, Scalar(0, 0, 0), -1);
-
-
-					printf("first poitnt x  %d \n", rect_getter()[i].x);
-					printf("first poitnt y  %d \n", rect_getter()[i].y);
 
 					cv::line(input, rect[i], rect[p], cv::Scalar(0, 255, 255));
 
@@ -177,7 +175,10 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 		}
 	}
-
+	num_Rects=num;
+    if(num_Rects>0){
+        printf("Number of rects  %d \n", num_Rects);
+    }
 	return input;
 }
 
@@ -190,6 +191,7 @@ std::vector<Point> LightDetect::rect_getter(int index)
 {
 	 return my_rect[index];
 }
+
 
 
 

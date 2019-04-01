@@ -32,6 +32,7 @@ class LightDetect{
 	protected:
 
 		std::vector<Point> my_rect[MAX_REC];
+		int num_Rects=0;
 		void rect_setter(std::vector<Point> rect, int index = 0);
 		std::vector<Point> rect_getter(int index = 0);
 
