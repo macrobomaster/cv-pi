@@ -84,16 +84,19 @@ cv::Mat LightDetect::FilterColor(cv::Mat InputMat, int enemycolor) {
 // Further Filter out noises
 cv::Mat LightDetect::erode_dilate(cv::Mat InputMat) {
 	// Get structure element and erode and dilate.
-	Mat erodeStruct = getStructuringElement(MORPH_RECT, Size(3, 3));
+	Mat dilateStruct = getStructuringElement(MORPH_RECT, Size(3, 3));
+
+    Mat erodeStruct = getStructuringElement(MORPH_RECT, Size(2, 2));
 
 	Mat input = InputMat.clone();
 
 	Mat result_erode, result_dilate;
 
 	// Change last parameter of the following 2 functions based on computation limitation
+
 	cv::erode(input, result_erode, erodeStruct, Point(-1, -1), 2);
 
-	cv::dilate(result_erode, result_dilate, erodeStruct, Point(-1, -1), 4);
+	cv::dilate(result_erode, result_dilate, dilateStruct, Point(-1, -1), 5);
 
 	return result_dilate;
 }
