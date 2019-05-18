@@ -179,9 +179,11 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 		}
 	}
 	num_Rects=num;
+	/*
     if(num_Rects>0){
         printf("Number of rects  %d \n", num_Rects);
     }
+    */
 	return input;
 }
 
@@ -194,6 +196,43 @@ std::vector<Point> LightDetect::rect_getter(int index)
 {
 	 return my_rect[index];
 }
+
+ // Return Center point of the enemy robot
+cv::Point2f LightDetect::returncenter(){
+    /*
+    float Lmax=rect_getter(0)[1].x;
+    float Rmax=rect_getter(0)[1].x;
+    float Upmax=rect_getter(0)[1].y;
+    float Downmax=rect_getter(0)[1].y;
+    for(int i=0; i<num_Rects; i++){
+        vector<Point> RectToCheck=rect_getter(i);
+        for(int j=0; j<4; j++){
+            cv::Point2f Temp=RectToCheck[j];
+            if(Temp.x<Lmax){
+                Lmax=Temp.x;
+            }
+            else if(Temp.x>Rmax){
+                Rmax=Temp.x;
+            }
+            else if(Temp.y<Downmax){
+                Downmax=Temp.y;
+            }
+            else if(Temp.y>Upmax){
+                Upmax=Temp.y;
+            }
+            else{
+                continue;
+            }
+        }
+    }
+    cv::Point2f center(((Rmax-Lmax)/2)+Lmax,((Upmax-Downmax)/2)+Downmax);
+    cout << center.x;
+    cout << center.y;
+    */
+    cv::Point2f centerRobo(my_rect[0][1].x, my_rect[0][1].y);
+    return centerRobo;
+}
+
 
 
 

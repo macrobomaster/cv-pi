@@ -36,8 +36,8 @@ int main()
     	resultFilter = sth.FilterColor(inHSV, 0);
 		After_dilate = sth.erode_dilate(resultFilter);
 		withrect = sth.findRec(After_dilate);
-
 		cv::imshow("Filter Prototype I", withrect);
+		Point2f center=sth.returncenter();
 		char c = cvWaitKey(50);
 		if (c == 27)
 			break;

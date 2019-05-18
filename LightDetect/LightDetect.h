@@ -25,7 +25,7 @@ class LightDetect{
 		double angle(Point pt1, Point pt2, Point pt0);
 
 		cv::Mat findRec(cv::Mat InputMat);
-
+		cv::Point2f returncenter();
 	private:
 
 
