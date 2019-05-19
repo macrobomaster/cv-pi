@@ -165,16 +165,16 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
                 for(int j=0; j<4; j++){
                     cv::Point2f Temp=rect[j];
-                    if(Temp.x<Lmax){
+                    if(Temp.x<Lmax && abs(Temp.x-Lmax)<200){
                         Lmax=Temp.x;
                     }
-                    if(Temp.x>Rmax){
+                    if(Temp.x>Rmax && abs(Temp.x-Rmax)<200){
                         Rmax=Temp.x;
                     }
-                    if(Temp.y<Downmax){
+                    if(Temp.y<Downmax && abs(Temp.y-Downmax)<200){
                         Downmax=Temp.y;
                     }
-                    if(Temp.y>Upmax){
+                    if(Temp.y>Upmax && abs(Temp.y-Upmax)<200){
                         Upmax=Temp.y;
                     }
                 }
@@ -211,11 +211,12 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
     }
     */
     if(num_Rects==0){
-        center=Point2f(0,0);
+        center=Point2f(750,500);
     }
     else{
         center=Point2f(((Rmax-Lmax)/2)+Lmax,((Upmax-Downmax)/2)+Downmax);
     }
+    cv::circle(input,center,5,Scalar(255, 0, 255));
 	return input;
 }
 
