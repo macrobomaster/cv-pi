@@ -16,6 +16,7 @@ using namespace cv;
 class LightDetect{
 
 	public:
+	    cv::Point2f center;
 		cv::Mat toHSV(cv::Mat InputMat);
 
 		cv::Mat FilterColor(cv::Mat InputMat, int enemycolor);

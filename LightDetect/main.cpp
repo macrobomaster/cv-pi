@@ -38,6 +38,7 @@ int main()
 		withrect = sth.findRec(After_dilate);
 		cv::imshow("Filter Prototype I", withrect);
 		Point2f center=sth.returncenter();
+		cout<<"Center X= "<<center.x<<"\n"<<"Center Y= "<<center.y<<endl;
 		char c = cvWaitKey(50);
 		if (c == 27)
 			break;

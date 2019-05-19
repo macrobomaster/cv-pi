@@ -131,6 +131,14 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 	vector<Point> polygon;
 
+	int Lmax=0;
+
+    int Rmax=0;
+
+    int Upmax=0;
+
+    int Downmax=0;
+
 	for (int i = 0; i < contours.size(); i++) {
 
 		approxPolyDP(contours[i], polygon, arcLength(contours[i], 1) * 0.02, 1);
@@ -148,6 +156,28 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 				rect = polygon;
 
+                if(i==0){
+                    Lmax=rect[0].x;
+                    Rmax=rect[0].x;
+                    Upmax=rect[0].y;
+                    Downmax=rect[0].y;
+                }
+
+                for(int j=0; j<4; j++){
+                    cv::Point2f Temp=rect[j];
+                    if(Temp.x<Lmax){
+                        Lmax=Temp.x;
+                    }
+                    if(Temp.x>Rmax){
+                        Rmax=Temp.x;
+                    }
+                    if(Temp.y<Downmax){
+                        Downmax=Temp.y;
+                    }
+                    if(Temp.y>Upmax){
+                        Upmax=Temp.y;
+                    }
+                }
 				//james: saving the rec
 				rect_setter(polygon);
 
@@ -170,10 +200,6 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
 
 				//x1[i] = polygon[i].x;
 				//y1[i] = polygon[i].y;
-
-
-
-
 			}
 
 		}
@@ -184,6 +210,12 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
         printf("Number of rects  %d \n", num_Rects);
     }
     */
+    if(num_Rects==0){
+        center=Point2f(0,0);
+    }
+    else{
+        center=Point2f(((Rmax-Lmax)/2)+Lmax,((Upmax-Downmax)/2)+Downmax);
+    }
 	return input;
 }
 
@@ -198,41 +230,10 @@ std::vector<Point> LightDetect::rect_getter(int index)
 }
 
  // Return Center point of the enemy robot
-cv::Point2f LightDetect::returncenter(){
-    /*
-    float Lmax=rect_getter(0)[1].x;
-    float Rmax=rect_getter(0)[1].x;
-    float Upmax=rect_getter(0)[1].y;
-    float Downmax=rect_getter(0)[1].y;
-    for(int i=0; i<num_Rects; i++){
-        vector<Point> RectToCheck=rect_getter(i);
-        for(int j=0; j<4; j++){
-            cv::Point2f Temp=RectToCheck[j];
-            if(Temp.x<Lmax){
-                Lmax=Temp.x;
-            }
-            else if(Temp.x>Rmax){
-                Rmax=Temp.x;
-            }
-            else if(Temp.y<Downmax){
-                Downmax=Temp.y;
-            }
-            else if(Temp.y>Upmax){
-                Upmax=Temp.y;
-            }
-            else{
-                continue;
-            }
-        }
-    }
-    cv::Point2f center(((Rmax-Lmax)/2)+Lmax,((Upmax-Downmax)/2)+Downmax);
-    cout << center.x;
-    cout << center.y;
-    */
-    cv::Point2f centerRobo(my_rect[0][1].x, my_rect[0][1].y);
-    return centerRobo;
-}
 
+cv::Point2f LightDetect::returncenter(){
+        return center;
+}
 
 
 

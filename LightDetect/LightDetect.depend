@@ -42,13 +42,13 @@
 	<opencv2/imgproc.hpp>
 	<vector>
 
-1558219713 source:c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\main.cpp
+1558233356 source:c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\main.cpp
 	<iostream>
 	<stdio.h>
 	"LightDetect.h"
 	<vector>
 
-1558219761 c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\lightdetect.h
+1558233031 c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\lightdetect.h
 	<stdio.h>
 	"opencv2/opencv.hpp"
 	<opencv2/highgui.hpp>
@@ -56,7 +56,7 @@
 	<vector>
 	<list>
 
-1558219387 source:c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\lightdetect.cpp
+1558233208 source:c:\users\cheng\onedrive\documents\github\cv-pi\lightdetect\lightdetect.cpp
 	<opencv2/opencv.hpp>
 	<opencv2/core.hpp>
 	<opencv2/highgui.hpp>
