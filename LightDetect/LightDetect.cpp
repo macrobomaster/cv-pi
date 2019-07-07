@@ -210,10 +210,14 @@ cv::Mat LightDetect::findRec(cv::Mat InputMat) {
         printf("Number of rects  %d \n", num_Rects);
     }
     */
-    if(num_Rects==0){
+    if(num==0){
         center=Point2f(750,500);
     }
+
     else{
+        for(int k=0;k<num;k++){
+
+        }
         center=Point2f(((Rmax-Lmax)/2)+Lmax,((Upmax-Downmax)/2)+Downmax);
     }
     cv::circle(input,center,5,Scalar(255, 0, 255));
